@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:number_paginator/number_paginator.dart';
 import 'package:teeing_ground/data/data.dart';
 import 'package:teeing_ground/widgets/tablerow_widget.dart' as tablerow;
+import 'package:teeing_ground/screens/exam_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -151,7 +152,21 @@ class _HomeScreenState extends State<HomeScreen> {
                         currentPage != rows.length ~/ 25
                             ? (currentPage + 1) * 25
                             : rows.length))
-                      row,
+                      ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          elevation: 0,
+                          padding: const EdgeInsets.all(0),
+                        ),
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const ExamScreen(),
+                            ),
+                          );
+                        },
+                        child: row,
+                      ),
                     const SizedBox(
                       height: 25,
                     ),
