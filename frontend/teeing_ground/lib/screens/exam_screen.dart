@@ -1,11 +1,19 @@
 import 'package:flutter/material.dart';
+
 import 'package:teeing_ground/widgets/splitview_widget.dart';
 
 class ExamScreen extends StatefulWidget {
-  const ExamScreen({super.key});
+  final int problemId;
+
+  const ExamScreen({
+    Key? key,
+    required this.problemId,
+  }) : super(key: key);
 
   @override
-  State<ExamScreen> createState() => _ExamScreenState();
+  State<ExamScreen> createState() => _ExamScreenState(
+        problemId: problemId,
+      );
 }
 
 class _ExamScreenState extends State<ExamScreen> {
@@ -14,6 +22,9 @@ class _ExamScreenState extends State<ExamScreen> {
           .size
           .width /
       3;
+  final int problemId;
+
+  _ExamScreenState({required this.problemId});
 
   @override
   Widget build(BuildContext context) {
@@ -44,10 +55,10 @@ class _ExamScreenState extends State<ExamScreen> {
       body: VerticalSplitView(
         left: Container(
           color: Colors.green,
-          child: const Center(
+          child: Center(
             child: Text(
-              "Left",
-              style: TextStyle(
+              "$problemId",
+              style: const TextStyle(
                 color: Colors.white,
                 fontSize: 20,
               ),

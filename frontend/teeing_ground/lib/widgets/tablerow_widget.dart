@@ -2,12 +2,14 @@ import 'package:flutter/material.dart';
 
 class TableRow extends StatelessWidget {
   final bool status;
+  final int id;
   final String problem, difficulty, tag;
   final Color color;
 
   const TableRow({
     Key? key,
     required this.status,
+    required this.id,
     required this.problem,
     required this.difficulty,
     required this.tag,
